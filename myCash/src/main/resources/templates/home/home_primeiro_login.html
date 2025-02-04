@@ -14,13 +14,18 @@
             <i th:class="${primeiraReceitaAdicionada != null && primeiraReceitaAdicionada ? 'bi bi-check-circle-fill text-success' : 'bi bi-check-circle'}"></i>
             Adicione sua primeira receita
         </li>
-        <li><i class="bi bi-check-circle"></i> Personalize categorias financeiras</li>
+        <li th:classappend="${categoriaAdicionada != null && categoriaAdicionada ? 'text-decoration-line-through' : ''}">
+            <i th:class="${categoriaAdicionada != null && categoriaAdicionada ? 'bi bi-check-circle-fill text-success' : 'bi bi-check-circle'}" class="bi bi-check-circle"></i>
+            Personalize categorias financeiras
+        </li>
     </ul>
 
-    <div class="mt-4" th:classappend="${primeiraReceitaAdicionada != null && primeiraReceitaAdicionada ? 'text-center' : ''}">
+    <div class="mt-4" th:classappend="${primeiraReceitaAdicionada != null && primeiraReceitaAdicionada && categoriaAdicionada != null && categoriaAdicionada ? 'text-center' : ''}">
         <a th:if="${primeiraReceitaAdicionada == null || !primeiraReceitaAdicionada}" href="/adicionar-receita" class="btn btn-outline-success" id="botao-add-receita">Adicionar Receita</a>
-        <a href="/adicionar-categorias" class="btn btn-outline-secondary ms-3" id="botao-add-meta">Personalize categorias financeiras</a>
+        <a th:if="${primeiraReceitaAdicionada != null && primeiraReceitaAdicionada && (categoriaAdicionada == null || !categoriaAdicionada)}" href="/adicionar-categorias" class="btn btn-outline-secondary ms-3" id="botao-add-meta">Personalize categorias financeiras</a>
+        <a th:if="${primeiraReceitaAdicionada != null && primeiraReceitaAdicionada && categoriaAdicionada != null && categoriaAdicionada}" href="/dashboard" class="btn btn-outline-success ms-3" id="botao-pronto">Estou pronto!</a>
     </div>
+
 
 </div>
 

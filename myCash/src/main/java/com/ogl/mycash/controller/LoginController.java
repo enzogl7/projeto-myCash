@@ -113,15 +113,13 @@ public class LoginController {
             HttpSessionSecurityContextRepository securityContextRepository = new HttpSessionSecurityContextRepository();
             securityContextRepository.saveContext(context, request, response);
 
-            // BLOCO COMENTADO PARA NÃO FICAR DEIXANDO A CONTA COMO ANTIGA
-            //if (usuario.isContaNova()) {
-            //   usuario.setContaNova(false);
-            //   usuarioService.salvar(usuario);
-            //    return ResponseEntity.status(HttpStatus.ACCEPTED).build();
-            //}
+            if (usuario.isContaNova()) {
+               usuario.setContaNova(false);
+               usuarioService.salvar(usuario);
+                return ResponseEntity.status(HttpStatus.ACCEPTED).build();
+            }
 
-            //return ResponseEntity.ok().build();
-            return ResponseEntity.status(HttpStatus.ACCEPTED).build();
+            return ResponseEntity.ok().build();
         } catch (Exception e) {
             System.out.println("Erro de autenticação: " + e.getMessage());
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
