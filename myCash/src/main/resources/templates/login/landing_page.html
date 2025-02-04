@@ -30,6 +30,12 @@
     <section id="secao-form">
         <div id="formulario-registro-container">
             <h2 class="text-center">Registre-se</h2>
+            <div th:if="${mensagemSucesso}" class="alert alert-success">
+                <p th:text="${mensagemSucesso}"></p>
+            </div>
+            <div th:if="${mensagem}" class="alert alert-danger">
+                <p th:text="${mensagem}"></p>
+            </div>
             <div id="formulario-registro" class="mt-5">
                 <form id="formRegistro" action="/registrar" method="POST" >
                     <div class="row">
