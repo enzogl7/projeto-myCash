@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/head_fragment :: headContent('/assets/css/minhas_receitas.css')"></head>
+<meta charset="UTF-8">
+<title> Minhas receitas | MyCash</title>
 <body>
 <div class="container mt-5">
   <h1 class="text-center mb-4" id="titulo-principal">Minhas Receitas</h1>
@@ -23,10 +25,13 @@
       <div th:each="receita : ${receitasUsuario}" class="list-group-item d-flex justify-content-between align-items-center">
         <div>
           <h5 th:text="${receita.descricao}"></h5>
-          <small th:text="'Data: ' + ${receita.dataRecebimento}"></small>
+          <small id="data-receita" th:text="'Data: ' + ${receita.dataRecebimento}"></small>
         </div>
         <div class="text-end">
-          <h5 class="text-success">R$ <span th:text="${receita.valor}"></span></h5>
+          <h5 class="text-success">
+            <span th:text="${moedaUsuario}"></span>
+            <span th:text="${receita.valor}"></span>
+          </h5>
           <small th:text="'Categoria: ' + ${receita.categoria}"></small>
         </div>
       </div>
@@ -35,6 +40,6 @@
   </div>
 </div>
 
-<footer th:replace="fragments/scripts_fragment :: scriptsContent('')"></footer>
+<footer th:replace="fragments/scripts_fragment :: scriptsContent('/assets/js/receita.js')"></footer>
 </body>
 </html>

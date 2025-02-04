@@ -35,7 +35,10 @@
                     <div class="card text-center mb-4">
                         <div class="card-header">Saldo Atual</div>
                         <div class="card-body">
-                            <h2>R$ <span th:text="${receitaUsuario}"></span></h2>
+                            <h2>
+                                <span th:text="${moedaUsuario}"></span>
+                                <span th:text="${receitaUsuario}"></span>
+                            </h2>
                             <p class="text-success">Saldo disponível</p>
                         </div>
                     </div>
@@ -45,7 +48,10 @@
                     <div class="card text-center mb-4">
                         <div class="card-header">Receitas</div> <!-- MELHORAR ESSE FUNCIONAMENTO DE RECEITAS !-->
                         <div class="card-body">
-                            <h3>R$ <span th:text="${receitaUsuario}"></span></h3>
+                            <h3>
+                                <span th:text="${moedaUsuario}"></span>
+                                <span th:text="${receitaUsuario}"></span>
+                            </h3>
                         </div>
                     </div>
                 </div>
@@ -54,7 +60,10 @@
                     <div class="card text-center mb-4">
                         <div class="card-header">Despesas</div>
                         <div class="card-body">
-                            <h3>R$ 0,00</h3>
+                            <h3>
+                                <span th:text="${moedaUsuario}"></span>
+                                <span th:text="${receitaUsuario}"></span>
+                            </h3>
                         </div>
                     </div>
                 </div>

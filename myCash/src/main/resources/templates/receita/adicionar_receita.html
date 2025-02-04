@@ -32,11 +32,15 @@
         <option value="Freelancer">Freelancer</option>
         <option value="Investimentos">Investimentos</option>
         <option value="Outros">Outros</option>
+        <option th:each="categoria : ${categoriaPorUsuario}"
+                th:value="${categoria.nome}"
+                th:text="${categoria.nome}"></option>
       </select>
     </div>
 
     <button type="submit" class="btn btn-primary mt-4">Salvar Receita</button>
-    <a href="/home" class="btn btn-secondary mt-4 ms-3">Cancelar</a>
+    <a th:href="@{${temReceitas} ? '/receita/minhas-receitas' : '/home'}"
+       class="btn btn-secondary mt-4 ms-3">Cancelar</a>
   </form>
 </div>
 

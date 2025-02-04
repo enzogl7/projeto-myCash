@@ -32,15 +32,22 @@ public class ReceitaControll {
         receita.setDataRecebimento(LocalDate.parse(dataRecebimento));
         receita.setCategoria(categoria);
         receita.setUsuario(usuarioService.getUsuarioLogado());
-        receitaService.salvar(receita);
-
-        redirectAttributes.addFlashAttribute("primeiraReceitaAdicionada", true);
-        return "redirect:/home";
+        if (receitaService.findByUsuarioId(usuarioService.getUsuarioLogado().getId()).isEmpty()) {
+            receitaService.salvar(receita);
+            redirectAttributes.addFlashAttribute("primeiraReceitaAdicionada", true);
+            return "redirect:/home";
+        }
+        else {
+            receitaService.salvar(receita);
+            redirectAttributes.addFlashAttribute("jaPossuiReceitaAdicionada", true);
+            return "redirect:/receita/minhas-receitas";
+        }
     }
 
     @GetMapping("/minhas-receitas")
     public String minhasReceitas(Model model) {
         model.addAttribute("receitasUsuario", receitaService.findByUsuarioId(usuarioService.getUsuarioLogado().getId()));
+        model.addAttribute("moedaUsuario", usuarioService.getMoedaPrincipalByUsuario(usuarioService.getUsuarioLogado()));
         return "/receita/minhas_receitas";
     }
 }
