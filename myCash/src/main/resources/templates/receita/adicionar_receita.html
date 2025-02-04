@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head_fragment :: headContent('')"></head>
+<meta charset="UTF-8">
+<title>Adicionar Receita | MyCash</title>
+</head>
+<body>
+<div class="centered-container">
+  <h1 class="title">Adicionar Receita</h1>
+  <p class="subtitle mt-3">Insira os detalhes da sua receita para começar a organizar suas finanças.</p>
+
+  <form action="/receitas/salvar" method="post" class="mt-4">
+    <div class="form-group mt-3">
+      <label for="descricao">Descrição</label>
+      <input type="text" id="descricao" name="descricao" class="form-control" placeholder="Ex: Salário mensal" required>
+    </div>
+
+    <div class="form-group mt-3">
+      <label for="valor">Valor <span th:text="'(' + ${moedaPrincipal} + ')'"></span></label>
+      <input type="number" id="valor" name="valor" class="form-control" placeholder="Ex: 2500.00" step="0.01" required>
+    </div>
+
+    <div class="form-group mt-3">
+      <label for="dataRecebimento">Data de Recebimento</label>
+      <input type="date" id="dataRecebimento" name="dataRecebimento" class="form-control" required>
+    </div>
+
+    <div class="form-group mt-3">
+      <label for="categoria">Categoria</label>
+      <select id="categoria" name="categoria" class="form-control">
+        <option value="Salário">Salário</option>
+        <option value="Freelancer">Freelancer</option>
+        <option value="Investimentos">Investimentos</option>
+        <option value="Outros">Outros</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-4">Salvar Receita</button>
+    <a href="/home" class="btn btn-secondary mt-4 ms-3">Cancelar</a>
+  </form>
+</div>
+
+<footer th:replace="fragments/scripts_fragment :: scriptsContent('')"></footer>
+</body>
+</html>
