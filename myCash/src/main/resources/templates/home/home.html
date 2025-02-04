@@ -1,10 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head_fragment :: headContent('/assets/css/home_dashboard.css')"></head>
+<meta charset="UTF-8">
+<title>Dashboard | MyCash</title>
 </head>
 <body>
-  <h1>TESTE</h1>
+<div class="container">
+    <div class="row">
+        <!-- Menu Lateral -->
+        <div class="col-md-3">
+            <div class="list-group">
+                <a href="/home" class="list-group-item list-group-item-action active">Início</a>
+                <a href="/minhas-receitas" class="list-group-item list-group-item-action">Minhas Receitas</a>
+                <a href="/minhas-despesas" class="list-group-item list-group-item-action">Minhas Despesas</a>
+                <a href="/metas" class="list-group-item list-group-item-action">Metas</a>
+                <a href="/configuracoes" class="list-group-item list-group-item-action">Configurações</a>
+                <a href="/entrar" class="list-group-item list-group-item-action">Sair</a>
+            </div>
+        </div>
+
+        <!-- Coluna Principal -->
+        <div class="col-md-9">
+            <!-- Header -->
+            <div class="row">
+                <div class="col">
+                    <h1 class="display-5">Olá, <span th:text="${usuario.nome}">Usuário</span>!</h1>
+                    <p class="lead">Aqui está o resumo do seu saldo financeiro:</p>
+                </div>
+            </div>
+
+            <!-- Cards com Resumo -->
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card text-center mb-4">
+                        <div class="card-header">Saldo Atual</div>
+                        <div class="card-body">
+                            <h2>R$ <span th:text="${receitaUsuario}"></span></h2>
+                            <p class="text-success">Saldo disponível</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card text-center mb-4">
+                        <div class="card-header">Receitas</div> <!-- MELHORAR ESSE FUNCIONAMENTO DE RECEITAS !-->
+                        <div class="card-body">
+                            <h3>R$ <span th:text="${receitaUsuario}"></span></h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card text-center mb-4">
+                        <div class="card-header">Despesas</div>
+                        <div class="card-body">
+                            <h3>R$ 0,00</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botões Ações -->
+            <div class="row mt-3 text-center">
+                <div class="col-md-4 offset-md-4">
+                    <a href="/relatorios" class="btn btn-custom btn-lg w-100">Ver Relatórios</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer th:replace="fragments/scripts_fragment :: scriptsContent('')"></footer>
 </body>
 </html>

@@ -87,9 +87,13 @@ public class LoginController {
                                 @RequestParam("senha")String senha,
                                 HttpServletRequest request,
                                 HttpServletResponse response) {
-
-        Optional<Usuario> usuarioOptional = usuarioRepository.findByEmail(email);
         try {
+            Optional<Usuario> usuarioOptional = usuarioRepository.findByEmail(email);
+            if (usuarioOptional.isEmpty()) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+
+            }
+
             if (usuarioOptional.isPresent()) {
                 if (!passwordEncoder.matches(senha, usuarioOptional.get().getSenha())) { // senha incorreta
                     return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();

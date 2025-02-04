@@ -1,0 +1,57 @@
+body {
+    background-color: #202124;
+    color: #e0e0e0;
+    font-family: 'Lexend', sans-serif;
+}
+
+.container {
+    margin-top: 40px;
+}
+
+.card {
+    background-color: #2b2d31;
+    border: none;
+    border-radius: 10px;
+    color: #ffffff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.card-header {
+    background-color: #3c4043;
+    color: #ffffff;
+    font-weight: bold;
+    text-align: center;
+}
+
+.btn-custom {
+    background-color: #4caf50;
+    color: #ffffff;
+    border: none;
+    border-radius: 25px;
+}
+
+.btn-custom:hover {
+    background-color: #43a047;
+}
+
+.list-group {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+}
+
+
+.list-group-item {
+    background-color: #2b2d31;
+    color: #e0e0e0;
+    border: none;
+}
+
+.list-group-item.active {
+    background-color: #4caf50;
+    color: #ffffff;
+}
+
+.list-group-item:hover {
+    background-color: #3c4043;
+    color: #ffffff;
+}

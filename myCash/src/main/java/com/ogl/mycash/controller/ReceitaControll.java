@@ -30,7 +30,7 @@ public class ReceitaControll {
                                 RedirectAttributes redirectAttributes) {
         Receita receita = new Receita();
         receita.setDescricao(descricao);
-        receita.setValor(valor);
+        receita.setValor(Double.valueOf(valor));
         receita.setDataRecebimento(LocalDate.parse(dataRecebimento));
         receita.setCategoria(categoria);
         receita.setUsuario(usuarioService.getUsuarioLogado());

@@ -5,6 +5,8 @@ import com.ogl.mycash.repository.ReceitaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ReceitaService {
     @Autowired
@@ -12,5 +14,10 @@ public class ReceitaService {
 
     public void salvar(Receita receita) {
         receitaRepository.save(receita);
+    }
+
+    public Float getTotalReceitasByUsuarioId(Integer usuarioId) {
+        Float total = receitaRepository.findTotalValorByUsuarioId(usuarioId);
+        return total != null ? total : (float) 0.0;
     }
 }

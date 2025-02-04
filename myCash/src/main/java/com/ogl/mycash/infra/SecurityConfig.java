@@ -40,17 +40,20 @@ public class SecurityConfig {
                                 "/registrar",
                                 "/entrar",
                                 "/logar",
+                                "/logout",
                                 "/resources/**",
                                 "/assets/**"
                         ).permitAll()
                         .anyRequest().authenticated()
                 )
                 .logout(logout -> logout
+                        .logoutUrl("/logout")
                         .logoutSuccessUrl("/login?logout")
-                        .permitAll()
+                        .invalidateHttpSession(true)
+                        .deleteCookies("JSESSIONID")
                 )
                 .csrf(csrf -> csrf
-                        .ignoringRequestMatchers("/registrar", "/entrar", "/logar", "/home", "/receita/**", "/categoria/**")
+                        .ignoringRequestMatchers("/registrar", "/entrar", "/logar", "/logout", "/home", "/receita/**", "/categoria/**")
                 )
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)

@@ -19,6 +19,9 @@ function entrar() {
                 case 401:
                     exibirMensagemErro(mensagemErro, 'Ops! email/senha incorreta.')
                     break;
+                case 404:
+                    exibirMensagemErro(mensagemErro, 'Usuário não encontrado.')
+                    break;
                 case 500:
                     alert("erro")
                     break;

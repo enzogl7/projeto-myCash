@@ -1,5 +1,6 @@
 package com.ogl.mycash.controller;
 
+import com.ogl.mycash.service.ReceitaService;
 import com.ogl.mycash.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +12,8 @@ public class HomeController {
 
     @Autowired
     private UsuarioService usuarioService;
+    @Autowired
+    private ReceitaService receitaService;
 
     @GetMapping("/home")
     public String home() {
@@ -18,7 +21,9 @@ public class HomeController {
     }
 
     @GetMapping("/dashboard")
-    public String dashboard() {
+    public String dashboard(Model model) {
+        model.addAttribute("usuario", usuarioService.getUsuarioLogado());
+        model.addAttribute("receitaUsuario", receitaService.getTotalReceitasByUsuarioId(usuarioService.getUsuarioLogado().getId()));
         return "/home/home";
     }
 
