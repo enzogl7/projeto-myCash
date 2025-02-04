@@ -7,7 +7,6 @@ function formatDate(dateString) {
     return `${day}/${month}/${year}`;
 }
 
-
 document.querySelectorAll('#data-receita').forEach(function(element) {
     const originalDate = element.textContent.trim();
     const formattedDate = formatDate(originalDate);

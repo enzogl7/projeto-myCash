@@ -34,7 +34,7 @@
             <span th:text="${receita.valor}"></span>
           </h5>
           <small th:text="'Categoria: ' + ${receita.categoria}"></small>
-          <button title="Excluir receita" type="submit" class="btn btn-link text-danger p-0 ms-3">
+          <button th:data-id="${receita.id}" onclick="excluirReceita(this)" title="Excluir receita" type="submit" class="btn btn-link text-danger p-0 ms-3">
             <i class="bi bi-trash"></i>
           </button>
         </div>
