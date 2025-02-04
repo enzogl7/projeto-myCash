@@ -1,0 +1,70 @@
+body {
+    background-color: #202124;
+    display: block;
+    min-height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    font-family: 'Lexend', sans-serif;
+    position: relative;
+
+}
+
+#secao-box-formulario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #202124;
+}
+
+#box-formulario {
+    width: 100%;
+    max-width: 600px;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#botao-entrar {
+    transition: transform 0.4s ease, background-color 0.4s ease, box-shadow 0.4s ease;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+
+#botao:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+#botao-entrar {
+    transform: scale(1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+span {
+    padding-top: 15px;
+    text-align: center;
+    font-size: 14px;
+}
+
+a, a:hover {
+    color: #198754;
+    text-decoration: underline;
+}
+
+.mensagem-escondida {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    color: red;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+.mensagem-visivel {
+    display: block;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    color: red;
+}

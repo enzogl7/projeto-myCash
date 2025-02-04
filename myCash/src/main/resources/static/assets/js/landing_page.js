@@ -39,18 +39,6 @@ document.addEventListener("DOMContentLoaded", function () {
     updateActiveDot();
 });
 
-function exibirMensagemErro(elemento, mensagem) {
-    elemento.textContent = mensagem;
-    elemento.classList.remove('mensagem-escondida');
-    elemento.classList.add('mensagem-visivel');
-
-    setTimeout(function () {
-        elemento.classList.remove('mensagem-visivel');
-        elemento.classList.add('mensagem-escondida');
-    }, 2500);
-}
-
-
 function registrar() {
     var nome = document.getElementById('nome').value;
     var email = document.getElementById('email').value;
