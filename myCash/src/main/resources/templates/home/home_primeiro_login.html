@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head_fragment :: headContent('/assets/css/home_primeiro_login.css')"></head>
+    <meta charset="UTF-8">
+    <title>Boas-vindas! | MyCash</title>
+</head>
+<body>
+<div class="welcome-container">
+    <h1 class="welcome-title">Bem-vindo ao MyCash! 🎉</h1>
+    <p class="mt-3">Estamos felizes em ter você conosco. Que tal começar sua jornada financeira agora?</p>
+
+    <ul class="checklist mt-4">
+        <li><i class="bi bi-check-circle-fill"></i> Adicione sua primeira receita ou despesa</li>
+        <li><i class="bi bi-check-circle-fill"></i> Defina uma meta de economia</li>
+        <li><i class="bi bi-check-circle-fill"></i> Personalize categorias financeiras</li>
+    </ul>
+
+    <div class="mt-4">
+        <a href="/adicionar-transacao" class="btn btn-outline-success" id="botao-add-receita">Adicionar Receita/Despesa</a>
+        <a href="/metas" class="btn btn-outline-secondary ms-3" id="botao-add-meta">Definir uma Meta</a>
+    </div>
+</div>
+
+<footer th:replace="fragments/scripts_fragment :: scriptsContent('')"></footer>
+</body>
+</html>

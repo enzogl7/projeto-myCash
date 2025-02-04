@@ -7,7 +7,7 @@ function entrar() {
         type: 'POST',
         data: {
             email: email,
-            senha: senha
+            senha: senha,
         },
         complete: function(xhr, status) {
             switch (xhr.status) {

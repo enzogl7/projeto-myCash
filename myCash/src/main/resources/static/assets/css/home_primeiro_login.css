@@ -1,0 +1,42 @@
+body {
+    background-color: #202124;
+    font-family: 'Lexend', sans-serif;
+}
+
+.welcome-container {
+    max-width: 700px;
+    margin: 100px auto;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    text-align: center;
+}
+.welcome-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+}
+#botao-add-receita, #botao-add-meta {
+    transition: transform 0.4s ease, background-color 0.4s ease, box-shadow 0.4s ease;
+    transform: scale(1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#botao-add-receita:hover, #botao-add-meta:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.checklist {
+    list-style: none;
+    padding-left: 0;
+}
+.checklist li {
+    margin: 15px 0;
+    text-align: left;
+}
+.checklist i {
+    color: #28a745;
+    margin-right: 10px;
+}

@@ -8,3 +8,9 @@ function exibirMensagemErro(elemento, mensagem) {
         elemento.classList.add('mensagem-escondida');
     }, 2500);
 }
+
+const toggleThemeBtn = document.getElementById('toggleThemeBtn');
+toggleThemeBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    toggleThemeBtn.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+});

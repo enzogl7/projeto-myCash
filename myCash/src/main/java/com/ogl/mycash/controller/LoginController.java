@@ -3,6 +3,7 @@ package com.ogl.mycash.controller;
 import com.ogl.mycash.model.Usuario;
 import com.ogl.mycash.repository.UsuarioRepository;
 import com.ogl.mycash.service.UsuarioService;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
