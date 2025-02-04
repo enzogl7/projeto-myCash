@@ -27,12 +27,16 @@
           <h5 th:text="${receita.descricao}"></h5>
           <small id="data-receita" th:text="'Data: ' + ${receita.dataRecebimento}"></small>
         </div>
+
         <div class="text-end">
           <h5 class="text-success">
             <span th:text="${moedaUsuario}"></span>
             <span th:text="${receita.valor}"></span>
           </h5>
           <small th:text="'Categoria: ' + ${receita.categoria}"></small>
+          <button title="Excluir receita" type="submit" class="btn btn-link text-danger p-0 ms-3">
+            <i class="bi bi-trash"></i>
+          </button>
         </div>
       </div>
     </div>
