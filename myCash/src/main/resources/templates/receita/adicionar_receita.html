@@ -9,7 +9,7 @@
   <h1 class="title">Adicionar Receita</h1>
   <p class="subtitle mt-3">Insira os detalhes da sua receita para começar a organizar suas finanças.</p>
 
-  <form action="/receitas/salvar" method="post" class="mt-4">
+  <form action="/receita/salvarreceita" method="post" class="mt-4">
     <div class="form-group mt-3">
       <label for="descricao">Descrição</label>
       <input type="text" id="descricao" name="descricao" class="form-control" placeholder="Ex: Salário mensal" required>
@@ -40,6 +40,6 @@
   </form>
 </div>
 
-<footer th:replace="fragments/scripts_fragment :: scriptsContent('')"></footer>
+<footer th:replace="fragments/scripts_fragment :: scriptsContent('/assets/js/receita.js')"></footer>
 </body>
 </html>

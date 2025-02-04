@@ -10,15 +10,18 @@
     <p class="mt-3">Estamos felizes em ter você conosco. Que tal começar sua jornada financeira agora?</p>
 
     <ul class="checklist mt-4">
-        <li><i class="bi bi-check-circle"></i> Adicione sua primeira receita</li>
-        <li><i class="bi bi-check-circle"></i> Defina uma meta de economia</li>
+        <li th:classappend="${primeiraReceitaAdicionada != null && primeiraReceitaAdicionada ? 'text-decoration-line-through' : ''}">
+            <i th:class="${primeiraReceitaAdicionada != null && primeiraReceitaAdicionada ? 'bi bi-check-circle-fill text-success' : 'bi bi-check-circle'}"></i>
+            Adicione sua primeira receita
+        </li>
         <li><i class="bi bi-check-circle"></i> Personalize categorias financeiras</li>
     </ul>
 
-    <div class="mt-4">
-        <a href="/adicionar-receita" class="btn btn-outline-success" id="botao-add-receita">Adicionar Receita</a>
-        <a href="/metas" class="btn btn-outline-secondary ms-3" id="botao-add-meta">Definir uma Meta</a>
+    <div class="mt-4" th:classappend="${primeiraReceitaAdicionada != null && primeiraReceitaAdicionada ? 'text-center' : ''}">
+        <a th:if="${primeiraReceitaAdicionada == null || !primeiraReceitaAdicionada}" href="/adicionar-receita" class="btn btn-outline-success" id="botao-add-receita">Adicionar Receita</a>
+        <a href="/adicionar-categorias" class="btn btn-outline-secondary ms-3" id="botao-add-meta">Personalize categorias financeiras</a>
     </div>
+
 </div>
 
 <footer th:replace="fragments/scripts_fragment :: scriptsContent('')"></footer>
