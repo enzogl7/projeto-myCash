@@ -20,4 +20,8 @@ public class ReceitaService {
         Float total = receitaRepository.findTotalValorByUsuarioId(usuarioId);
         return total != null ? total : (float) 0.0;
     }
+
+    public List<Receita> findByUsuarioId(Integer usuarioId) {
+        return receitaRepository.findByUsuarioId(usuarioId);
+    }
 }

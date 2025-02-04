@@ -1,0 +1,15 @@
+#titulo-principal{
+    color: white;
+}
+.white-box {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    margin-top: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.list-group-item {
+    background: #202124;
+    color: white;
+}

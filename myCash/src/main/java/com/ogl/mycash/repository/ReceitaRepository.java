@@ -13,4 +13,5 @@ public interface ReceitaRepository extends JpaRepository<Receita, Long> {
     @Query(value = "SELECT SUM(CAST(r.valor AS float)) FROM Receita r WHERE r.usuario_id = :usuarioId", nativeQuery = true)
     Float findTotalValorByUsuarioId(Integer usuarioId);
 
+    List<Receita> findByUsuarioId(Integer usuarioId);
 }

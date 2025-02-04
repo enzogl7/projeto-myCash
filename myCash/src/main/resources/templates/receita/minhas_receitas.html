@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head_fragment :: headContent('/assets/css/minhas_receitas.css')"></head>
+<body>
+<div class="container mt-5">
+  <h1 class="text-center mb-4" id="titulo-principal">Minhas Receitas</h1>
+
+  <div class="white-box shadow">
+    <div class="d-flex justify-content-between mb-3">
+      <a href="/dashboard" class="btn btn-secondary">
+        <i class="bi bi-arrow-left"></i> Voltar ao Dashboard
+      </a>
+      <a href="/adicionar-receita" class="btn btn-success">Adicionar Nova Receita</a>
+    </div>
+
+
+
+    <div class="list-group">
+      <div th:if="${receitasUsuario.isEmpty()}" class="list-group-item text-center">
+        <p>Nenhuma receita cadastrada.</p>
+      </div>
+
+      <div th:each="receita : ${receitasUsuario}" class="list-group-item d-flex justify-content-between align-items-center">
+        <div>
+          <h5 th:text="${receita.descricao}"></h5>
+          <small th:text="'Data: ' + ${receita.dataRecebimento}"></small>
+        </div>
+        <div class="text-end">
+          <h5 class="text-success">R$ <span th:text="${receita.valor}"></span></h5>
+          <small th:text="'Categoria: ' + ${receita.categoria}"></small>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer th:replace="fragments/scripts_fragment :: scriptsContent('')"></footer>
+</body>
+</html>
