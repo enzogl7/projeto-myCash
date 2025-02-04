@@ -57,7 +57,7 @@
 
                         <div class="col-md-4 mb-3">
                             <label for="telefone" class="form-label">Telefone</label>
-                            <input type="tel" id="telefone" class="form-control" placeholder="Digite seu telefone" required>
+                            <input type="tel" id="telefone" name="telefone" class="form-control telefone" placeholder="(99) 99999-9999" required>
                         </div>
 
                         <div class="col-md-4 mb-3">
@@ -87,4 +87,12 @@
 </body>
 </html>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/cleave.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/cleave.js/dist/addons/cleave-phone.br.js"></script>
+<script>
+    new Cleave('#telefone', {
+        phone: true,
+        phoneRegionCode: 'BR'
+    });
+</script>
 <script src="/assets/js/landing_page.js"></script>
