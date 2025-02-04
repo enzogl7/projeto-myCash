@@ -10,15 +10,25 @@ body {
 .money-emoji {
     font-size: 8rem;
 }
-h1, p, h2, label {
+h1, p {
     color: white;
     font-family: "Lexend", serif;
     font-optical-sizing: auto;
     font-style: normal;
 }
 
+#botao-comecar, #botao-registrar {
+    transition: transform 0.4s ease, background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
 #botao-comecar:hover, #botao-registrar:hover {
-    transition: 0.4s ease;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+#botao-comecar, #botao-registrar {
+    transform: scale(1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 span{
@@ -48,13 +58,11 @@ a, a:hover {
     text-align: center;
 }
 #secao-form {
-    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     background-color: #202124;
-    padding: 3rem;
-    position: relative;
-    width: 100%;
-    color: white;
-    text-align: left;
 }
 
 .navigation-dots {
@@ -96,4 +104,13 @@ a, a:hover {
 
 .form-check-input.green-checkbox:focus {
     box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25);
+}
+
+#formulario-registro-container {
+    width: 100%;
+    max-width: 850px;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
