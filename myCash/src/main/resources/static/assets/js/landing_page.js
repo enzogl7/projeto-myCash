@@ -38,3 +38,60 @@ document.addEventListener("DOMContentLoaded", function () {
 
     updateActiveDot();
 });
+
+function exibirMensagemErro(elemento, mensagem) {
+    elemento.textContent = mensagem;
+    elemento.classList.remove('mensagem-escondida');
+    elemento.classList.add('mensagem-visivel');
+
+    setTimeout(function () {
+        elemento.classList.remove('mensagem-visivel');
+        elemento.classList.add('mensagem-escondida');
+    }, 2500);
+}
+
+
+function registrar() {
+    var nome = document.getElementById('nome').value;
+    var email = document.getElementById('email').value;
+    var senha = document.getElementById('senha').value;
+    var confirmarSenha = document.getElementById('confirmarSenha').value;
+    var telefone = document.getElementById('telefone').value;
+    var moedaPrincipal = document.getElementById('moedaPrincipal').value;
+
+    if (senha !== confirmarSenha) {
+        exibirMensagemErro(mensagemErro, 'As senhas não coincidem. Tente novamente.');
+        return false;
+    }
+
+    $.ajax({
+        url: '/registrar',
+        type: 'POST',
+        data: {
+            nome: nome,
+            email: email,
+            senha: senha,
+            telefone: telefone,
+            moedaPrincipal: moedaPrincipal,
+        },
+        complete: function(xhr, status) {
+            switch (xhr.status) {
+                case 200:
+                    alert("sucesso")
+                    break;
+                case 302:
+                    exibirMensagemErro(mensagemErro, 'Ops! este email já foi cadastrado.')
+                    break;
+                case 406:
+                    exibirMensagemErro(mensagemErro, 'Ops! este número de telefone já foi cadastrado.')
+                    break;
+                case 500:
+                    alert("erro")
+                    break;
+                default:
+                    alert("Erro desconhecido: " + status);
+            }
+        }
+    });
+
+}

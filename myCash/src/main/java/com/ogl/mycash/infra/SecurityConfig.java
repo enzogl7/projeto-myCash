@@ -26,8 +26,9 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
-                                "/login",
+                                "/mycash",
                                 "/registrar",
+                                "/entrar",
                                 "/resources/**",
                                 "/assets/**"
                         ).permitAll()
@@ -41,13 +42,13 @@ public class SecurityConfig {
                         .permitAll()
                 )
                 .csrf(csrf -> csrf
-                        .ignoringRequestMatchers("/registrar", "/login", "/logar", "/home")
+                        .ignoringRequestMatchers("/registrar", "/entrar", "/home")
                 )
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
                 )
                 .exceptionHandling(exception -> exception
-                        .authenticationEntryPoint(new LoginUrlAuthenticationEntryPoint("/login"))
+                        .authenticationEntryPoint(new LoginUrlAuthenticationEntryPoint("/mycash"))
                 );
 
         return http.build();
