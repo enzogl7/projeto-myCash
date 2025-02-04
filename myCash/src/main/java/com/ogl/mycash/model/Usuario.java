@@ -26,6 +26,9 @@ public class Usuario implements Serializable {
     @Column(nullable = false, length = 10)
     private String moedaPreferida;
 
+    @Column()
+    private boolean contaNova;
+
     // Getters e Setters
     public Integer getId() {
         return id;
@@ -73,5 +76,13 @@ public class Usuario implements Serializable {
 
     public void setMoedaPreferida(String moedaPreferida) {
         this.moedaPreferida = moedaPreferida;
+    }
+
+    public boolean isContaNova() {
+        return contaNova;
+    }
+
+    public void setContaNova(boolean contaNova) {
+        this.contaNova = contaNova;
     }
 }

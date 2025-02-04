@@ -63,12 +63,6 @@ public class SecurityConfig {
     }
 
     @Bean
-    public RememberMeServices rememberMeServices() {
-        return new TokenBasedRememberMeServices("remember-me-key", usuarioDetailsService, persistentTokenRepository());
-    }
-
-
-    @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }

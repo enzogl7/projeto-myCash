@@ -69,6 +69,7 @@ public class LoginController {
         usuario.setSenha(passwordEncoder.encode(senha));
         usuario.setTelefone(telefone);
         usuario.setMoedaPreferida(moedaPrincipal);
+        usuario.setContaNova(true);
 
         usuarioService.salvar(usuario);
 
@@ -112,7 +113,15 @@ public class LoginController {
             HttpSessionSecurityContextRepository securityContextRepository = new HttpSessionSecurityContextRepository();
             securityContextRepository.saveContext(context, request, response);
 
-            return ResponseEntity.ok().build();
+            // BLOCO COMENTADO PARA NÃO FICAR DEIXANDO A CONTA COMO ANTIGA
+            //if (usuario.isContaNova()) {
+            //   usuario.setContaNova(false);
+            //   usuarioService.salvar(usuario);
+            //    return ResponseEntity.status(HttpStatus.ACCEPTED).build();
+            //}
+
+            //return ResponseEntity.ok().build();
+            return ResponseEntity.status(HttpStatus.ACCEPTED).build();
         } catch (Exception e) {
             System.out.println("Erro de autenticação: " + e.getMessage());
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();

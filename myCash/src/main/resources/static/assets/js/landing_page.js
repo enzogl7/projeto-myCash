@@ -65,7 +65,7 @@ function registrar() {
         complete: function(xhr, status) {
             switch (xhr.status) {
                 case 200:
-                    alert("sucesso")
+                    window.location.href = '/entrar'
                     break;
                 case 302:
                     exibirMensagemErro(mensagemErro, 'Ops! este email já foi cadastrado.')

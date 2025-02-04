@@ -11,9 +11,11 @@ function entrar() {
         },
         complete: function(xhr, status) {
             switch (xhr.status) {
-                case 200:
+                case 202:
                     window.location.href = '/home'
                     break;
+                case 200:
+                    window.location.href = '/dashboard'
                 case 401:
                     exibirMensagemErro(mensagemErro, 'Ops! email/senha incorreta.')
                     break;
