@@ -1,5 +1,9 @@
-document.getElementById("botao-comecar").addEventListener("click", function() {
-    window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
+document.getElementById('botao-comecar').addEventListener('click', function(event) {
+    event.preventDefault();
+    document.getElementById('secao-form').scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+    });
 });
 
 document.addEventListener("DOMContentLoaded", function () {
