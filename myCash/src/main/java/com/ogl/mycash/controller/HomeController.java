@@ -27,4 +27,9 @@ public class HomeController {
         model.addAttribute("moedaPrincipal", usuarioService.getMoedaPrincipalByUsuario(usuarioService.getUsuarioLogado()));
         return "/receita/adicionar_receita";
     }
+
+    @GetMapping("/adicionar-categorias")
+    public String personalizarCategorias(Model model) {
+        return "/categoria/adicionar_categorias";
+    }
 }

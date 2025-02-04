@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head_fragment :: headContent('')"></head>
+<meta charset="UTF-8">
+<title>Adicionar categorias | MyCash</title>
+</head>
+<body>
+<div class="centered-container">
+  <h1 class="title">Adicionar categorias</h1>
+  <p class="subtitle mt-3">Adicione categorias e deixe o MyCash do seu jeito!</p>
+
+  <form action="/categorias/criar" method="post">
+    <div id="categorias-container">
+      <div class="form-group mt-3 categoria-item">
+        <label for="nomeCategoria">Nome</label>
+        <input type="text" id="nomeCategoria" name="nomeCategoria" class="form-control" placeholder="Ex: Presente, Bico" required>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-4">Salvar categorias</button>
+    <button type="button" class="btn btn-secondary mt-4" id="adicionarCategoria">Adicionar outra categoria</button>
+
+    <a href="/home" class="btn btn-secondary mt-4 ms-3">Cancelar</a>
+  </form>
+</div>
+<footer th:replace="fragments/scripts_fragment :: scriptsContent('/assets/js/categoria.js')"></footer>
+</body>
+</html>
