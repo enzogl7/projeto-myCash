@@ -30,4 +30,8 @@ public class UsuarioService {
     public String getMoedaPrincipalByUsuario(Usuario usuario) {
         return usuario.getMoedaPreferida();
     }
+
+    public Usuario getUsuarioById(Integer id) {
+        return usuarioRepository.findById(Long.valueOf(id)).orElseThrow(null);
+    }
 }

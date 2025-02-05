@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head_fragment :: headContent('/assets/css/minhas_receitas.css')"></head>
+<meta charset="UTF-8">
+<title> Minhas despesas | MyCash</title>
+<body>
+<div class="container mt-5">
+  <h1 class="text-center mb-4" id="titulo-principal">Minhas despesas</h1>
+
+  <div class="white-box shadow">
+    <div class="d-flex justify-content-between mb-3">
+      <a href="/dashboard" class="btn btn-secondary">
+        <i class="bi bi-arrow-left"></i> Voltar ao Dashboard
+      </a>
+      <a href="/despesa/adicionar-despesa" class="btn btn-success">Adicionar nova despesa</a>
+    </div>
+
+
+
+    <div class="list-group">
+      <div th:if="${despesasUsuario.isEmpty()}" class="list-group-item text-center">
+        <p>Nenhuma despesa cadastrada.</p>
+      </div>
+
+      <div th:each="despesa : ${despesasUsuario}" class="list-group-item d-flex align-items-center">
+        <img th:src="@{'/uploads/' + ${despesa.logoPath}}" alt="Ícone da despesa" class="me-3" style="width: 40px; height: 40px; object-fit: cover; border-radius: 50%;">
+
+        <div class="d-flex justify-content-between flex-grow-1">
+          <div>
+            <h5 th:text="${despesa.descricao}"></h5>
+            <small id="data-receita" th:text="'Data: ' + ${despesa.data}"></small>
+          </div>
+
+          <div class="text-end">
+            <h5 class="text-success">
+              <span th:text="${moedaUsuario}"></span>
+              <span th:text="${despesa.valor}"></span>
+            </h5>
+            <button th:data-id="${despesa.id}" onclick="confirmarExclusaoDespesa(this)" title="Excluir despesa" type="submit" class="btn btn-link text-danger p-0 ms-3">
+              <i class="bi bi-trash"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+<footer th:replace="fragments/scripts_fragment :: scriptsContent('')"></footer>
+</body>
+</html>
