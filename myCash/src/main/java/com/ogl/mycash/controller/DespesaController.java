@@ -4,6 +4,7 @@ import com.ogl.mycash.model.Despesa;
 import com.ogl.mycash.service.DespesaService;
 import com.ogl.mycash.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -70,5 +71,16 @@ public class DespesaController {
             return "error";
         }
 
+    }
+
+    @PostMapping("/excluir")
+    public ResponseEntity<Void> excluirDespesa(@RequestParam("idDespesa")String idDespesa) {
+        try {
+            despesaService.excluir(Long.valueOf(idDespesa));
+            return ResponseEntity.ok().build();
+        }
+        catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
     }
 }

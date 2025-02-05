@@ -19,4 +19,13 @@ public class DespesaService {
     public void salvar(Despesa despesa) {
         despesaRepository.save(despesa);
     }
+
+    public void excluir(Long id) {
+        despesaRepository.deleteById(id);
+    }
+
+    public Float getTotalDespesasByUsuarioId(Integer usuarioId) {
+        Float total = despesaRepository.findTotalValorByUsuarioId(usuarioId);
+        return total != null ? total : (float) 0.0;
+    }
 }

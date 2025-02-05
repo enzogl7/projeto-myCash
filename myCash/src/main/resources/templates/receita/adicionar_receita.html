@@ -39,7 +39,7 @@
     </div>
 
     <button type="submit" class="btn btn-primary mt-4">Salvar Receita</button>
-    <a th:href="@{${temReceitas} ? '/receita/minhas-receitas' : '/home'}"
+    <a th:href="@{${usuarioNovo} ? '/receita/minhas-receitas' : '/home'}"
        class="btn btn-secondary mt-4 ms-3">Cancelar</a>
   </form>
 </div>

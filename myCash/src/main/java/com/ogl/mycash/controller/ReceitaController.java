@@ -1,6 +1,7 @@
 package com.ogl.mycash.controller;
 
 import com.ogl.mycash.model.Receita;
+import com.ogl.mycash.service.CategoriaService;
 import com.ogl.mycash.service.ReceitaService;
 import com.ogl.mycash.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,17 @@ public class ReceitaController {
     private ReceitaService receitaService;
     @Autowired
     private UsuarioService usuarioService;
+    @Autowired
+    private CategoriaService categoriaService;
+
+    @GetMapping("/adicionar-receita-dashboard")
+    public String adicionarReceita(Model model) {
+        model.addAttribute("moedaPrincipal", usuarioService.getMoedaPrincipalByUsuario(usuarioService.getUsuarioLogado()));
+        model.addAttribute("categoriaPorUsuario", categoriaService.findByUsuarioId(Long.valueOf(usuarioService.getUsuarioLogado().getId())));
+        boolean usuarioNovo = false;
+        model.addAttribute("usuarioNovo", !usuarioNovo);
+        return "/receita/adicionar_receita";
+    }
 
     @PostMapping("/salvarreceita")
     public String salvarReceita(@RequestParam("descricao")String descricao,
