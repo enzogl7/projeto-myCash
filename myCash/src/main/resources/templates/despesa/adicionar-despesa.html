@@ -25,6 +25,17 @@
       <input type="date" id="dataDespesa" name="dataDespesa" class="form-control" required>
     </div>
 
+    <div class="form-group mt-3" th:if="${iconesUsuario != null and !iconesUsuario.isEmpty()}">
+      <label>Meus ícones</label>
+      <select class="form-control" name="iconeDespesaExistente" id="iconeDespesaExistente" onchange="desabilitarInputArquivo()">
+        <option value="">Nenhum</option>
+        <option th:each="iconeUsuario : ${iconesUsuario}"
+                th:value="${iconeUsuario}"
+                th:text="${#strings.substringAfter(iconeUsuario, '_')}">
+        </option>
+      </select>
+    </div>
+
     <div class="form-group mt-3">
       <label for="iconeDespesa">Ícone da despesa</label>
       <span class="d-block text-muted" style="font-size: 0.875em;">Adicione um ícone para listagem dessa despesa</span>
@@ -38,6 +49,6 @@
   </form>
 </div>
 
-<footer th:replace="fragments/scripts_fragment :: scriptsContent('/assets/js/receita.js')"></footer>
+<footer th:replace="fragments/scripts_fragment :: scriptsContent('/assets/js/despesa.js')"></footer>
 </body>
 </html>

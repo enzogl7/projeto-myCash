@@ -39,6 +39,7 @@ public class DespesaController {
     @GetMapping("/adicionar-despesa")
     public String adicionarDespesa(Model model) {
         model.addAttribute("moedaPrincipal", usuarioService.getMoedaPrincipalByUsuario(usuarioService.getUsuarioLogado()));
+        model.addAttribute("iconesUsuario", despesaService.findIconesByUsuarioId(usuarioService.getUsuarioLogado().getId()));
         return "/despesa/adicionar-despesa";
     }
 
@@ -46,6 +47,7 @@ public class DespesaController {
     public String salvarDespesa(@RequestParam("descricaoDespesa") String descricao,
                                 @RequestParam("valorDespesa") String valor,
                                 @RequestParam("dataDespesa") String data,
+                                @RequestParam(value = "iconeDespesaExistente", required = false) String iconeDespesaExistente,
                                 @RequestParam("iconeDespesa") MultipartFile logo) {
 
         try {
@@ -61,6 +63,8 @@ public class DespesaController {
                 Files.createDirectories(uploadPath);
                 Files.copy(logo.getInputStream(), uploadPath.resolve(fileName));
                 despesa.setLogoPath(fileName);
+            } else if (iconeDespesaExistente != null && !iconeDespesaExistente.isEmpty()) {
+                despesa.setLogoPath(iconeDespesaExistente);
             }
 
             despesa.setUsuario(usuarioService.getUsuarioById(usuarioService.getUsuarioLogado().getId()));

@@ -1,3 +1,5 @@
+formatElements('#data-despesa', formatDate);
+
 function confirmarExclusaoDespesa(button) {
     var idDespesaExclusao = button.getAttribute('data-id')
     Swal.fire({
@@ -47,4 +49,10 @@ function excluirDespesa(idButton) {
             }
         }
     });
+}
+
+function desabilitarInputArquivo() {
+    const select = document.getElementById('iconeDespesaExistente');
+    const fileInput = document.getElementById('iconeDespesa');
+    fileInput.disabled = select.value !== "";
 }

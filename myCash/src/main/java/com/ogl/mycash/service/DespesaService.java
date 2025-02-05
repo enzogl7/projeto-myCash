@@ -28,4 +28,9 @@ public class DespesaService {
         Float total = despesaRepository.findTotalValorByUsuarioId(usuarioId);
         return total != null ? total : (float) 0.0;
     }
+
+    public List<String> findIconesByUsuarioId(Integer usuarioId) {
+        return despesaRepository.findIconesByUsuarioId(usuarioId);
+    }
+
 }
