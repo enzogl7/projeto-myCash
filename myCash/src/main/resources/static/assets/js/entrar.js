@@ -2,6 +2,11 @@ function entrar() {
     var email = document.getElementById('emailLogin').value;
     var senha = document.getElementById('senhaLogin').value;
 
+    if (!email || !senha) {
+        exibirMensagemErro(mensagemErro, 'Todos os campos devem ser preenchidos.')
+        return false;
+    }
+
     $.ajax({
         url: '/logar',
         type: 'POST',

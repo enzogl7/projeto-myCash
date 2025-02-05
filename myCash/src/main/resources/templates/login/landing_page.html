@@ -35,9 +35,14 @@
                             <input type="text" id="email" class="form-control" placeholder="Digite seu melhor email" required>
                         </div>
 
-                        <div class="col-md-4 mb-3">
+                        <div class="col-md-4 mb-3 position-relative">
                             <label for="senha" class="form-label">Senha</label>
-                            <input type="password" id="senha" class="form-control" placeholder="Escolha uma senha" required>
+                            <div class="input-group">
+                                <input type="password" id="senha" class="form-control" placeholder="Escolha uma senha" required>
+                                <button class="btn btn-outline-secondary" type="button" title="Mostrar senha" onclick="mostrarSenha()">
+                                    <i id="iconSenha" class="bi bi-eye"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
 
@@ -65,6 +70,7 @@
                 <div id="mensagemErro" class="mensagem-escondida text-center"></div>
 
                 <button type="submit" class="btn btn-outline-success" id="botao-registrar" onclick="registrar()" style="width: 100%">Iniciar uma nova vida financeira!</button>
+                <span class="text-muted text-center d-block" id="span-senha" style="font-size: 0.8rem">*A senha deve conter ao menos 8 caracteres, incluindo uma letra maiúscula, uma letra minúscula, um número e um caractere especial.</span>
             </div>
         </div>
     </section>

@@ -52,6 +52,17 @@ function registrar() {
         return false;
     }
 
+    if (!nome || !email || !senha || !confirmarSenha || !telefone || !moedaPrincipal) {
+        exibirMensagemErro(mensagemErro, 'Todos os campos devem ser preenchidos.')
+        return false;
+    }
+
+    var senhaRequisitos = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[\W_]).{8,}$/;
+    if (!senhaRequisitos.test(senha)) {
+        exibirMensagemErro(mensagemErro, 'Senha fora dos requisitos.');
+        return false;
+    }
+
     $.ajax({
         url: '/registrar',
         type: 'POST',
@@ -81,5 +92,22 @@ function registrar() {
             }
         }
     });
+}
 
+function mostrarSenha() {
+    const senhaInput = document.getElementById("senha");
+    const confirmarSenhaInput = document.getElementById("confirmarSenha")
+    const iconSenha = document.getElementById("iconSenha");
+
+    if (senhaInput.type === "password" && confirmarSenhaInput.type === "password") {
+        senhaInput.type = "text";
+        confirmarSenhaInput.type = "text";
+        iconSenha.classList.remove("bi-eye");
+        iconSenha.classList.add("bi-eye-slash");
+    } else {
+        senhaInput.type = "password";
+        confirmarSenhaInput.type = "password";
+        iconSenha.classList.remove("bi-eye-slash");
+        iconSenha.classList.add("bi-eye");
+    }
 }
