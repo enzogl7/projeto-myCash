@@ -4,6 +4,7 @@ import com.ogl.mycash.model.Receita;
 import com.ogl.mycash.service.ReceitaService;
 import com.ogl.mycash.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +14,7 @@ import java.time.LocalDate;
 
 @Controller
 @RequestMapping("/receita")
-public class ReceitaControll {
+public class ReceitaController {
 
     @Autowired
     private ReceitaService receitaService;
@@ -49,5 +50,16 @@ public class ReceitaControll {
         model.addAttribute("receitasUsuario", receitaService.findByUsuarioId(usuarioService.getUsuarioLogado().getId()));
         model.addAttribute("moedaUsuario", usuarioService.getMoedaPrincipalByUsuario(usuarioService.getUsuarioLogado()));
         return "/receita/minhas_receitas";
+    }
+
+    @PostMapping("/excluir")
+    public ResponseEntity<Void> excluirReceita(@RequestParam("idReceita")Long idReceita) {
+        try {
+            receitaService.excluir(idReceita);
+            return ResponseEntity.ok().build();
+        }
+        catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
     }
 }

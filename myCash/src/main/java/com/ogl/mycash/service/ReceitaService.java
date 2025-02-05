@@ -24,4 +24,8 @@ public class ReceitaService {
     public List<Receita> findByUsuarioId(Integer usuarioId) {
         return receitaRepository.findByUsuarioId(usuarioId);
     }
+
+    public void excluir(Long id) {
+        receitaRepository.deleteById(id);
+    }
 }

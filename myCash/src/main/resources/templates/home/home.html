@@ -10,7 +10,7 @@
         <!-- Menu Lateral -->
         <div class="col-md-3">
             <div class="list-group">
-                <a href="/home" class="list-group-item list-group-item-action active">Início</a>
+                <a href="/dashboard" class="list-group-item list-group-item-action active">Início</a>
                 <a href="/receita/minhas-receitas" class="list-group-item list-group-item-action">Minhas Receitas</a>
                 <a href="/despesa/minhas-despesas" class="list-group-item list-group-item-action">Minhas Despesas</a>
                 <a href="/metas" class="list-group-item list-group-item-action">Metas</a>
@@ -37,16 +37,16 @@
                         <div class="card-body">
                             <h2>
                                 <span th:text="${moedaUsuario}"></span>
-                                <span th:text="${receitaUsuario}"></span>
+                                <span th:text="${receitaUsuario}"></span> <!-- criar saldo do usuario !-->
                             </h2>
-                            <p class="text-success">Saldo disponível</p>
+                            <a href="#" style="text-decoration: underline; color: #227d54"><p class="text-success">Acessar extrato</p></a>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-md-4">
                     <div class="card text-center mb-4">
-                        <div class="card-header">Receitas</div> <!-- MELHORAR ESSE FUNCIONAMENTO DE RECEITAS !-->
+                        <div class="card-header">Receitas</div>
                         <div class="card-body">
                             <h3>
                                 <span th:text="${moedaUsuario}"></span>
@@ -62,7 +62,7 @@
                         <div class="card-body">
                             <h3>
                                 <span th:text="${moedaUsuario}"></span>
-                                <span th:text="${receitaUsuario}"></span>
+                                <span ></span> <!-- add despesas !-->
                             </h3>
                         </div>
                     </div>
