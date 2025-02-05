@@ -1,3 +1,5 @@
+
+
 document.getElementById('botao-comecar').addEventListener('click', function(event) {
     event.preventDefault();
     document.getElementById('secao-form').scrollIntoView({
@@ -92,22 +94,4 @@ function registrar() {
             }
         }
     });
-}
-
-function mostrarSenha() {
-    const senhaInput = document.getElementById("senha");
-    const confirmarSenhaInput = document.getElementById("confirmarSenha")
-    const iconSenha = document.getElementById("iconSenha");
-
-    if (senhaInput.type === "password" && confirmarSenhaInput.type === "password") {
-        senhaInput.type = "text";
-        confirmarSenhaInput.type = "text";
-        iconSenha.classList.remove("bi-eye");
-        iconSenha.classList.add("bi-eye-slash");
-    } else {
-        senhaInput.type = "password";
-        confirmarSenhaInput.type = "password";
-        iconSenha.classList.remove("bi-eye-slash");
-        iconSenha.classList.add("bi-eye");
-    }
 }

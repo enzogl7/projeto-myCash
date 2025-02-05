@@ -18,7 +18,12 @@
 
       <div class="col-12">
         <label for="senhaLogin" class="form-label">Senha</label>
-        <input type="password" id="senhaLogin" class="form-control" placeholder="Digite sua senha" required>
+        <div class="input-group">
+          <input type="password" id="senhaLogin" class="form-control" placeholder="Digite sua senha" required>
+          <button class="btn btn-outline-secondary" type="button" title="Mostrar senha" onclick="mostrarSenha('senhaLogin', 'iconSenhaLogin')">
+            <i id="iconSenhaLogin" class="bi bi-eye"></i>
+          </button>
+        </div>
       </div>
     </div>
 

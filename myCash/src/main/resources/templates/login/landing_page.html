@@ -39,7 +39,7 @@
                             <label for="senha" class="form-label">Senha</label>
                             <div class="input-group">
                                 <input type="password" id="senha" class="form-control" placeholder="Escolha uma senha" required>
-                                <button class="btn btn-outline-secondary" type="button" title="Mostrar senha" onclick="mostrarSenha()">
+                                <button class="btn btn-outline-secondary" type="button" title="Mostrar senha" onclick="mostrarSenha('senha', 'iconSenha')">
                                     <i id="iconSenha" class="bi bi-eye"></i>
                                 </button>
                             </div>
@@ -49,7 +49,12 @@
                     <div class="row">
                         <div class="col-md-4 mb-3">
                             <label for="confirmarSenha" class="form-label">Confirmar senha</label>
-                            <input type="password" id="confirmarSenha" class="form-control" placeholder="Confirme sua senha" required>
+                            <div class="input-group">
+                                <input type="password" id="confirmarSenha" class="form-control" placeholder="Confirme sua senha" required>
+                                <button class="btn btn-outline-secondary" type="button" onclick="mostrarSenha('confirmarSenha', 'iconConfirmarSenha')">
+                                    <i id="iconConfirmarSenha" class="bi bi-eye"></i>
+                                </button>
+                            </div>
                         </div>
 
                         <div class="col-md-4 mb-3">

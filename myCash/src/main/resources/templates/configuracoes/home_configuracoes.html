@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head_fragment :: headContent('/assets/css/home_dashboard.css')"></head>
+<meta charset="UTF-8">
+<title>Configurações | MyCash</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <!-- Menu Lateral -->
+        <div class="col-md-3">
+            <div class="list-group">
+                <a href="/dashboard" class="list-group-item list-group-item-action">Início</a>
+                <a href="/receita/minhas-receitas" class="list-group-item list-group-item-action">Minhas Receitas</a>
+                <a href="/despesa/minhas-despesas" class="list-group-item list-group-item-action">Minhas Despesas</a>
+                <a href="/configuracoes" class="list-group-item list-group-item-action active">Configurações</a>
+                <a href="/entrar" class="list-group-item list-group-item-action">Sair</a>
+            </div>
+        </div>
+
+        <!-- Coluna Principal -->
+        <div class="col-md-9">
+            <!-- Header -->
+            <div class="row">
+                <div class="col">
+                    <h1 class="display-5">Configurações de <span th:text="${usuario.nome}">Usuário</span></h1>
+                    <p class="lead">Gerencie suas configurações pessoais e financeiras.</p>
+                </div>
+            </div>
+
+            <!-- Formulário de Configurações -->
+            <div class="row">
+                <div class="col-md-12">
+                    <form action="/configuracoes/atualizar" method="post">
+                        <div class="card mb-4">
+                            <div class="card-header">Informações Pessoais</div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="nomeConfig">Nome Completo</label>
+                                    <input type="text" class="form-control" id="nomeConfig" name="nomeConfig" th:value="${usuario.nome}" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="emailConfig">E-mail</label>
+                                    <input type="email" class="form-control" id="emailConfig" name="emailConfig" th:value="${usuario.email}" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="senhaConfig">Senha</label>
+                                    <div class="input-group">
+                                        <input type="password" id="senhaConfig" name="senhaConfig" class="form-control" placeholder="Alterar senha (opcional)">
+                                        <button class="btn btn-outline-secondary" type="button" title="Mostrar senha" onclick="mostrarSenha('senhaConfig', 'iconSenhaConfig')">
+                                            <i id="iconSenhaConfig" class="bi bi-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card mb-4">
+                            <div class="card-header">Preferências Financeiras</div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="moedaConfig">Moeda Preferencial</label>
+                                    <select class="form-control" id="moedaConfig" th:selected="${moedaUsuario}" name="moedaConfig">
+                                        <option value="R$">Real (BRL)</option>
+                                        <option value="$">Dólar (USD)</option>
+                                        <option value="€">Euro (EUR)</option>
+                                        <option value="£">Libra (GBP)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3 text-center">
+                            <div class="col-md-4 offset-md-4">
+                                <button type="submit" class="btn btn-custom btn-lg w-100">Salvar Configurações</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer th:replace="fragments/scripts_fragment :: scriptsContent('')"></footer>
+</body>
+</html>

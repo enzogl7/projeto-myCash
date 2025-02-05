@@ -53,7 +53,7 @@ public class SecurityConfig {
                         .deleteCookies("JSESSIONID")
                 )
                 .csrf(csrf -> csrf
-                        .ignoringRequestMatchers("/registrar", "/entrar", "/logar", "/logout", "/home", "/receita/**", "/categoria/**", "/despesa/**")
+                        .ignoringRequestMatchers("/registrar", "/entrar", "/logar", "/logout", "/home", "/receita/**", "/categoria/**", "/despesa/**", "/configuracoes/**")
                 )
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
